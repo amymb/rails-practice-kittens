@@ -1,0 +1,13 @@
+<%@categorization.errors.full_messages.each do |msg|%>
+  <div align = "center"><%=msg%></div>
+<%end%>
+
+<br>
+<br>
+<div align = "center">
+<%=form_for [@kitten, @categorization], html:{class: "form-inline"} do |f|%>
+  <%=image_tag(@kitten.image)%>
+  <p><%=f.collection_select(:category_id, Category.all, :id, :name, {}, {class: "form-control"})%></p>
+  <p><%=f.submit "Add Category"%></p>
+<%end%>
+</div>
